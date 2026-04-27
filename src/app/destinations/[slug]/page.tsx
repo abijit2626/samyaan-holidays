@@ -30,7 +30,7 @@ const MOCK_DESTINATIONS: Record<string, any> = {
 };
 
 export default async function DestinationPage({ params }: DestinationPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
 
   // Try fetching from Supabase
   const { data: destination } = await supabase
