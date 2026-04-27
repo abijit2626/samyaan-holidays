@@ -81,32 +81,34 @@ export default function TestimonialsPage() {
         </div>
 
         {/* Share Your Story Form */}
-        <div className="max-w-4xl mx-auto glass-panel p-12 bg-luxury-black relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-8 opacity-5">
-            <MessageSquare size={160} />
+        <div className="max-w-4xl mx-auto glass-panel p-12 relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none -z-10">
+            <MessageSquare size={120} className="text-gold" />
           </div>
           
-          <div className="relative z-10 text-center">
-            <h2 className="text-3xl font-bold mb-4 text-white">Share Your <span className="gold-gradient">Experience</span></h2>
-            <p className="text-white/60 mb-10 max-w-lg mx-auto">
-              Your feedback fuels our pursuit of perfection. Become part of the Samyaan legacy.
-            </p>
+          <div className="relative z-10">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Share Your <span className="gold-gradient">Experience</span></h2>
+              <p className="text-white/60 max-w-lg mx-auto">
+                Your feedback fuels our pursuit of perfection. Become part of the Samyaan legacy.
+              </p>
+            </div>
             
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-              <div className="space-y-2">
-                <label className="text-xs uppercase font-bold text-muted-foreground tracking-[0.2em]">Full Name</label>
-                <input type="text" className="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-white focus:border-gold outline-none" placeholder="Enter your name" />
+            <form className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-3">
+                <label className="text-xs uppercase font-bold text-muted-foreground tracking-[0.2em] ml-1">Full Name</label>
+                <input type="text" className="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-white focus:border-gold outline-none transition-all" placeholder="Enter your name" />
               </div>
-              <div className="space-y-2">
-                <label className="text-xs uppercase font-bold text-muted-foreground tracking-[0.2em]">Travel Year</label>
-                <input type="text" className="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-white focus:border-gold outline-none" placeholder="e.g. 2024" />
+              <div className="space-y-3">
+                <label className="text-xs uppercase font-bold text-muted-foreground tracking-[0.2em] ml-1">Travel Year</label>
+                <input type="text" className="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-white focus:border-gold outline-none transition-all" placeholder="e.g. 2024" />
               </div>
-              <div className="md:col-span-2 space-y-2">
-                <label className="text-xs uppercase font-bold text-muted-foreground tracking-[0.2em]">Your Review</label>
-                <textarea className="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-white focus:border-gold outline-none h-32" placeholder="Tell us about your journey..."></textarea>
+              <div className="md:col-span-2 space-y-3">
+                <label className="text-xs uppercase font-bold text-muted-foreground tracking-[0.2em] ml-1">Your Review</label>
+                <textarea className="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-white focus:border-gold outline-none h-40 resize-none transition-all" placeholder="Tell us about your journey..."></textarea>
               </div>
-              <div className="md:col-span-2 flex justify-center mt-6">
-                <button className="btn-primary px-12 py-4">Submit Testimonial</button>
+              <div className="md:col-span-2 flex justify-center mt-4">
+                <button className="btn-primary px-12 py-4 text-lg">Submit Testimonial</button>
               </div>
             </form>
           </div>

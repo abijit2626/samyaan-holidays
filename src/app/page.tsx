@@ -27,7 +27,7 @@ export default function Home() {
               },
               { 
                 name: "Amalfi Coast, Italy", 
-                img: "https://images.unsplash.com/photo-1633321088355-d0f81137ca3b?q=80&w=600",
+                img: "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=600",
                 category: "Scenic Escape" 
               }
             ].map((dest) => (

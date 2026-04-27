@@ -51,8 +51,8 @@ const ItineraryForm = () => {
             exit={{ opacity: 0, scale: 0.95 }}
             className="glass-panel p-8 md:p-12 shadow-2xl relative overflow-hidden"
           >
-            <div className="absolute top-0 right-0 p-4 opacity-10">
-              <Sparkles size={120} className="text-gold" />
+            <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none -z-10">
+              <Sparkles size={100} className="text-gold" />
             </div>
 
             <div className="relative z-10">
