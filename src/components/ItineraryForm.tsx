@@ -19,11 +19,21 @@ const ItineraryForm = () => {
     e.preventDefault();
     setLoading(true);
     
-    // Simulate API Call
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/generate-itinerary', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      
+      if (response.ok) {
+        setSuccess(true);
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+    } finally {
       setLoading(false);
-      setSuccess(true);
-    }, 2000);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {

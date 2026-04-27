@@ -1,14 +1,25 @@
 import { NextResponse } from 'next/server';
+import { supabase } from '@/lib/supabase';
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
     const { destination, duration, style, guests, email } = body;
 
-    // TODO: Integrate with OpenRouter / Gemini API
-    // const apiKey = process.env.OPENROUTER_API_KEY;
+    // 1. Capture Lead in Supabase
+    const { error: leadError } = await supabase
+      .from('leads')
+      .insert([
+        { 
+          email, 
+          destination_interest: destination,
+          metadata: { style, duration, guests }
+        }
+      ]);
 
-    // Static Mock Response for Demonstration
+    if (leadError) console.error('SUPABASE_LEAD_ERROR:', leadError);
+
+    // 2. Generate Mock/AI Response
     const mockContent = `
       # Bespoke ${style} Journey to ${destination}
       
@@ -22,6 +33,15 @@ export async function POST(req: Request) {
       
       *Full itinerary has been sent to ${email}.*
     `;
+
+    // 3. Log AI Request
+    await supabase.from('ai_requests').insert([
+      {
+        user_email: email,
+        request_params: { destination, duration, style, guests },
+        response_content: mockContent
+      }
+    ]);
 
     return NextResponse.json({ 
       success: true, 
